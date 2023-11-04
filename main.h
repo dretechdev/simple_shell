@@ -184,7 +184,7 @@ int my_alias(info_t *);
 
 /*toem_getline.c */
 ssize_t get_input(info_t *);
-int _getline(info_t *, char **, size_t *);
+int get_line(info_t *, char **, size_t *);
 void sigintHandler(int);
 
 /* toem_getinfo.c */
@@ -202,7 +202,7 @@ int populate_env_list(info_t *);
 /* toem_getenv.c */
 char **get_environ(info_t *);
 int _unsetenv(info_t *, char *);
-int _setenv(info_t *, char *, char *);
+int set_env(info_t *, char *, char *);
 
 /* toem_history.c */
 char *get_history_file(info_t *info);
