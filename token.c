@@ -1,4 +1,4 @@
-#include" main.h"
+#include "main.h"
 
 /**
  * **strtow - This splits a string into words and ignores the repeated delimers
@@ -61,7 +61,7 @@ char **strtow2(char *str, char d)
 	if (str == NULL || str[0] == 0)
 		return (NULL);
 	for (a = 0; str[a] != '\0'; a++)
-		if ((sr[a] != d && str[a + 1] == d) || (str[a] != d && !str[a + 1]) || str[a + 1] == d)
+		if ((str[a] != d && str[a + 1] == d) || (str[a] != d && !str[a + 1]) || str[a + 1] == d)
 			nwords++;
 	if (nwords == 0)
 		return (NULL);

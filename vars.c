@@ -18,9 +18,9 @@ int _ischain(info_t *info, char *buf, size_t *p)
 		k++;
 		info->cmd_buf_type = CMD_OR;
 	}
-	else if (buf[k] == '&' && buff[k + 1] == '&')
+	else if (buf[k] == '&' && buf[k + 1] == '&')
 	{
-		buf[k] = o;
+		buf[k] = 0;
 		k++;
 		info->cmd_buf_type = CMD_AND;
 	}
@@ -38,6 +38,7 @@ int _ischain(info_t *info, char *buf, size_t *p)
 /**
  * _checkagain - This checks the continuity of chaining based on last status
  * @info: This is the parameter structure
+ * @buf: The buffer
  * @p: This is the current position in the buffer
  * @i: This os the starting point in the buffer
  * @len: This is the buffer's length
@@ -86,7 +87,7 @@ int _replace_alias(info_t *info)
 		p = _strchr(node->str, '=');
 		if (!p)
 			return (0);
-		p = _strdip(p + 1);
+		p = _strdup(p + 1);
 		if (!p)
 			return (0);
 		info->argv[0] = p;
@@ -136,7 +137,7 @@ int replace_vars(info_t *info)
  * @new_str: This is the address of new string
  * Return: 1 if replaced OR 0 if otherwise
  */
-int relace_string(char **old_str, char *new_str)
+int replace_string(char **old_str, char *new_str)
 {
 	free(*old_str);
 	*old_str = new_str;
