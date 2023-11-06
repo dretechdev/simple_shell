@@ -113,7 +113,7 @@ typedef struct builtin
 
 /* toem_shloop.c */
 int hsh(info_t *, char **);
-int find_builtin(info_t *);
+int find_buil(info_t *);
 void find_cmd(info_t *);
 void fork_cmd(info_t *);
 
@@ -167,7 +167,7 @@ int is_alpha(int);
 int _atoi(char *);
 
 /* toem_errors1.c */
-int _erratoi(char *);
+int err_atoi(char *);
 void print_error(info_t *, char *);
 int print_d(int, int);
 char *convert_number(long int, int, int);
@@ -201,7 +201,7 @@ int populate_env_list(info_t *);
 
 /* toem_getenv.c */
 char **get_environ(info_t *);
-int _unsetenv(info_t *, char *);
+int un_setenv(info_t *, char *);
 int set_env(info_t *, char *, char *);
 
 /* toem_history.c */
@@ -227,7 +227,7 @@ ssize_t get_node_index(list_t *, list_t *);
 
 /* toem_vars.c */
 int is_chain(info_t *, char *, size_t *);
-void check_chain(info_t *, char *, size_t *, size_t, size_t);
+void _checkagain(info_t *, char *, size_t *, size_t, size_t);
 int replace_alias(info_t *);
 int replace_vars(info_t *);
 int replace_string(char **, char *);

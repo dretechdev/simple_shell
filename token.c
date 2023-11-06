@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * **strtow - This splits a string into words and ignores the repeated delimers
+ * strtow - This splits a string into words and ignores the repeated delimers
  * @str: This is the input string
  * @d: This is the delimeter string
  * Return: Returns a pointer to an array of strings, ir NULL if failure occurs
@@ -61,7 +61,9 @@ char **strtow2(char *str, char d)
 	if (str == NULL || str[0] == 0)
 		return (NULL);
 	for (a = 0; str[a] != '\0'; a++)
-		if ((str[a] != d && str[a + 1] == d) || (str[a] != d && !str[a + 1]) || str[a + 1] == d)
+		if ((str[a] != d && str[a + 1] == d)
+				|| (str[a] != d && !str[a + 1])
+				|| str[a + 1] == d)
 			nwords++;
 	if (nwords == 0)
 		return (NULL);

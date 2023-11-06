@@ -12,7 +12,7 @@ int my_exit(info_t *info)
 
 	if (info->argv[1])
 	{
-		excheck = _erratoi(info->argv[1]);
+		excheck = err_atoi(info->argv[1]);
 		if (excheck == -1)
 		{
 			info->status = 2;
@@ -21,7 +21,7 @@ int my_exit(info_t *info)
 			_eputchar('\n');
 			return (1);
 		}
-		info->err_num = _erratoi(info->argv[1]);
+		info->err_num = err_atoi(info->argv[1]);
 		return (-2);
 	}
 	info->err_num = -1;

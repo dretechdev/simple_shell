@@ -8,7 +8,7 @@
  * @p: This is the address of current position in the buffer
  * Return: 1 if chain delimeter, or 0 otherwise
  */
-int _ischain(info_t *info, char *buf, size_t *p)
+int is_chain(info_t *info, char *buf, size_t *p)
 {
 	size_t k = *p;
 
@@ -68,11 +68,11 @@ void _checkagain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 }
 
 /**
- * _replace_alias - This replaces an aliase in the tokenized string
+ * replace_alias - This replaces an aliase in the tokenized string
  * @info: This is the parameter struct
  * Return: 1 if replaced successfully, otherwise 0
  */
-int _replace_alias(info_t *info)
+int replace_alias(info_t *info)
 {
 	int a;
 	list_t *node;
@@ -80,7 +80,7 @@ int _replace_alias(info_t *info)
 
 	for (a = 0; a < 10; a++)
 	{
-		node = node_ starts_with(info->alias, info->argv[0], '=');
+		node = node_starts_with(info->alias, info->argv[0], '=');
 		if (!node)
 			return (0);
 		free(info->argv[0]);
@@ -112,18 +112,21 @@ int replace_vars(info_t *info)
 
 		if (!_strcmp(info->argv[e], "$?"))
 		{
-			replace_string(&(info->argv[e]), _strdup(convert_number(info->status, 10, 0)));
+			replace_string(&(info->argv[e]),
+			_strdup(convert_number(info->status, 10, 0)));
 			continue;
 		}
 		if (!_strcmp(info->argv[e], "$$"))
 		{
-			replace_string(&(info->argv[e]), _strdup(convert_number(getpid(), 10, 0)));
+			replace_string(&(info->argv[e]),
+			_strdup(convert_number(getpid(), 10, 0)));
 			continue;
 		}
-		node = node_starts_with(info->, &info->argv[e][1], '=');
+		node = node_starts_with(info->env, &info->argv[e][1], '=');
 		if (node)
 		{
-			replace_string(&(info->argv[e]), _strdup(_strchr(node->str, '=') + 1));
+			replace_string(&(info->argv[e]),
+			_strdup(_strchr(node->str, '=') + 1));
 			continue;
 		}
 		replace_string(&info->argv[e], _strdup(""));
