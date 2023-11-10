@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _ischain - This program tests if the current char in the buffer
+ * is_chain - This program tests if the current char in the buffer
  * is a delimeter
  * @info: This is the parameter struct
  * @buf: This is the character buffer
