@@ -31,7 +31,7 @@ char **strtow(char *str, char *d)
 		c = 0;
 		while (!is_delimeter(str[a + c], d) && str[a + c])
 			c++;
-		s[c] = malloc((c + 1) * sizeof(char));
+		s[b] = malloc((c + 1) * sizeof(char));
 		if (!s[b])
 		{
 			for (c = 0; c < b; c++)
